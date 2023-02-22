@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/item', [item::class, "item_main"])->name("item");
+Route::get("/item", [item::class, "item_main"])->name('item');
