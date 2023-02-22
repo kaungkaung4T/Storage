@@ -11,7 +11,7 @@
 
 
 <form action="{{ route('create_item') }}" method="POST" enctype="multipart/form-data">
-
+@csrf
 <div>
 Name
 <input type="text" name="name" style="margin-left:10px;">
@@ -28,5 +28,17 @@ Price
 <button>Submit</button>
 </form>
 
+<br><br><br>
 
+
+@foreach ($all_items as $each_item)
+<form action="{{ route('delete_item', $each_item->id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    {{ $each_item->name }}
+    {{ $each_item->price }}
+
+    <button>Submite</button>
+    </form>
+<br>
+@endforeach
 </div>

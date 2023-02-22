@@ -21,4 +21,7 @@ Route::get('/', function () {
 
 Route::get("/item", [item::class, "item_main"])->name("item");
 
+// Route::get("/create_item", [item::class, "create_item"])->name("create_item");
 Route::post("/create_item", [item::class, "create_item"])->name("create_item");
+
+Route::post("/delete_item/{id}", [item::class, "delete_item"])->name("delete_item");
