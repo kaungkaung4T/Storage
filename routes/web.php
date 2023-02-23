@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 
 Route::get("/item", [item::class, "item_main"])->name("item");
+
+Route::get("/create_item", [item::class, "create_item"])->name("create_item");
