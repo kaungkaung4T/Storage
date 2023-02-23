@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class item extends Controller
 {
     //
-    public function item_main () {
+    function item_main () {
         return view("item");
     }
 }
