@@ -25,6 +25,18 @@ class item extends Controller
     }
 
 
+    function view_update($id) {
+        $item = item_model::find($id);
+        return view("update_item", 
+            ["item"=> $item]);
+    }
+
+
+    function update($id) {
+        return redirect("item");
+    }
+
+
     function delete_item ($i) {
         $a = item_model::find($i);
         $a->delete();
