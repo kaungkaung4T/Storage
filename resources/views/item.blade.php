@@ -37,7 +37,10 @@ Price
     {{ $each_item->name }}
     {{ $each_item->price }}
 
-    <button>Submite</button>
+    <a href="{{ route('view_update', $each_item->id) }}" style="margin-left: 50px;">link</a>
+
+    <button style="margin-left: 50px;">Submite</button>
+
     </form>
 <br>
 @endforeach

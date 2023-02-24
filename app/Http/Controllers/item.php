@@ -26,6 +26,7 @@ class item extends Controller
 
 
     function view_update($id) {
+        // $item = item_model::find($id);
         $item = item_model::find($id);
         return view("update_item", 
             ["item"=> $item]);
