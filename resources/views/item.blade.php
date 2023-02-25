@@ -7,8 +7,24 @@
 
 
 
-<div style="margin: auto;width:300px;margin-top:200px;">
 
+
+<div style="margin: auto;width:300px;margin-top:50px;">
+
+<form action="{{ route('search') }}" method='GET' enctype="multipart/form-data" style="margin-bottom: 40px;">
+@csrf
+    Search: 
+    <input type="search" name="search" placeholder="search by name">
+
+    <button>Submit</button>
+</form>
+
+@if($result != 'none')
+@foreach($result as $one)
+<h1>{{ $one->name }}</h1>
+<h1 style="margin-bottom: 100px;">{{ $one->price }}</h1>
+@endforeach
+@endif
 
 <form action="{{ route('create_item') }}" method="POST" enctype="multipart/form-data">
 @csrf

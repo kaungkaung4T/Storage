@@ -10,8 +10,12 @@ class item extends Controller
     //
     function item_main () {
         $items = item_model::all();
+        
         return view("item", 
-                ["all_items"=> $items]);
+                [
+                    "all_items"=> $items,
+                    'result'=> 'none'
+            ]);
     }
 
     function create_item (Request $request) {
@@ -44,5 +48,18 @@ class item extends Controller
         $item = item_model::find($i);
         $item->delete();
         return redirect("/item");
+    }
+
+
+    function search (Request $request) {
+        $search = $request->search;
+        $result = item_model::where('name', '=', $search)->get();
+
+        $all_items = item_model::all();
+
+        return view('item', [
+            'result'=>$result,
+            'all_items'=>$all_items
+        ]);
     }
 }

@@ -29,3 +29,5 @@ Route::post('/update/{id}', [item::class, 'update'])->name('update');
 Route::get('/view_update/{id}', [item::class, 'view_update'])->name('view_update');
 
 Route::post('/delete_item/{id}', [item::class, 'delete_item'])->name('delete_item');
+
+Route::get('/search', [item::class, 'search'])->name('search');
