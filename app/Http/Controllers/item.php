@@ -9,38 +9,40 @@ class item extends Controller
 {
     //
     function item_main () {
-        $all_items = item_model::all();
-
-        return view("item", [
-            "all_items"=> $all_items,
-        ]);
+        $items = item_model::all();
+        return view("item", 
+                ["all_items"=> $items]);
     }
 
     function create_item (Request $request) {
+        $item = item_model::create($request->post());
 
-        item_model::create($request->post());
-
-
-        return redirect("item");
+        return redirect("/item");
     }
 
 
     function view_update($id) {
-        // $item = item_model::find($id);
         $item = item_model::find($id);
-        return view("update_item", 
-            ["item"=> $item]);
+        return view("update_item", [
+            "item"=> $item
+        ]);
     }
 
 
-    function update($id) {
-        return redirect("item");
+    function update($id, Request $request) {
+        $item = item_model::find($id);
+        $a = $item->update($request->post());
+        // $item->name = $request->name;
+        // $item->price = $request->price;
+        // $item->save();
+        
+        return redirect("/item");
     }
 
 
     function delete_item ($i) {
-        $a = item_model::find($i);
-        $a->delete();
-        return redirect("item");
+        $item = item_model::find($i);
+        $item->delete();
+        return redirect("/item");
     }
 }

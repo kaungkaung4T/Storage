@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\item;
+use App\Models\item_model;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,12 @@ Route::get('/', function () {
 });
 
 
-Route::get("/item", [item::class, "item_main"])->name("item");
+Route::get('/item', [item::class, 'item_main'])->name("item_main");
 
-// Route::get("/create_item", [item::class, "create_item"])->name("create_item");
-Route::post("/create_item", [item::class, "create_item"])->name("create_item");
+Route::post('/create_item', [item::class, 'create_item'])->name('create_item');
 
-Route::post("/delete_item/{id}", [item::class, "delete_item"])->name("delete_item");
+Route::post('/update/{id}', [item::class, 'update'])->name('update');
 
-Route::get("/view_update/{id}", [item::class, "view_update"])->name("view_update");
+Route::get('/view_update/{id}', [item::class, 'view_update'])->name('view_update');
 
-Route::post("/update/{id}", [item::class, "update"])->name("update");
+Route::post('/delete_item/{id}', [item::class, 'delete_item'])->name('delete_item');
